@@ -97,6 +97,52 @@ export default function EventsPage() {
             </div>
           </CardContent>
         </Card>
+        
+        <Card className="bg-sport-dark-lighter border-sport-dark-lightest hover:bg-sport-dark-lightest transition-colors overflow-hidden">
+          <div className="h-48 bg-gradient-to-r from-blue-600 to-blue-800"></div>
+          <CardContent className="p-6">
+            <div className="flex items-center justify-between mb-2">
+              <span className="bg-sport-primary text-black px-2 py-1 rounded text-sm font-medium">
+                Шоссе
+              </span>
+              <span className="text-gray-300 text-sm">18 мая 2024</span>
+            </div>
+            <h3 className="text-lg font-semibold text-sport-light mb-2">Гранд-при Сочи</h3>
+            <p className="text-gray-300 text-sm mb-4">Краснодарский край, Сочи</p>
+            <div className="flex items-center justify-between">
+              <div className="text-sm text-gray-300 flex items-center">
+                <Users className="mr-1 h-4 w-4" />
+                <span>132 участника</span>
+              </div>
+              <Button className="bg-sport-primary text-black hover:bg-yellow-500">
+                Участвовать
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+        
+        <Card className="bg-sport-dark-lighter border-sport-dark-lightest hover:bg-sport-dark-lightest transition-colors overflow-hidden">
+          <div className="h-48 bg-gradient-to-r from-purple-600 to-purple-800"></div>
+          <CardContent className="p-6">
+            <div className="flex items-center justify-between mb-2">
+              <span className="bg-sport-primary text-black px-2 py-1 rounded text-sm font-medium">
+                Трек
+              </span>
+              <span className="text-gray-300 text-sm">22 мая 2024</span>
+            </div>
+            <h3 className="text-lg font-semibold text-sport-light mb-2">Чемпионат Москвы</h3>
+            <p className="text-gray-300 text-sm mb-4">Москва, Крылатское</p>
+            <div className="flex items-center justify-between">
+              <div className="text-sm text-gray-300 flex items-center">
+                <Users className="mr-1 h-4 w-4" />
+                <span>28 участников</span>
+              </div>
+              <Button className="bg-sport-primary text-black hover:bg-yellow-500">
+                Участвовать
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

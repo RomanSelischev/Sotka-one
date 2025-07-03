@@ -16,6 +16,46 @@ export default function RankingPage() {
       category: "Элита",
       lastActivity: "2 дня назад",
     },
+    {
+      id: 2,
+      name: "Мария Петрова",
+      region: "Санкт-Петербург",
+      points: 2380,
+      competitions: 16,
+      rank: 2,
+      category: "Элита",
+      lastActivity: "3 дня назад",
+    },
+    {
+      id: 3,
+      name: "Дмитрий Смирнов",
+      region: "Краснодар",
+      points: 2150,
+      competitions: 14,
+      rank: 3,
+      category: "Элита",
+      lastActivity: "1 день назад",
+    },
+    {
+      id: 4,
+      name: "Елена Козлова",
+      region: "Екатеринбург",
+      points: 1980,
+      competitions: 12,
+      rank: 4,
+      category: "Мастер",
+      lastActivity: "5 дней назад",
+    },
+    {
+      id: 5,
+      name: "Иван Соколов",
+      region: "Новосибирск",
+      points: 1820,
+      competitions: 11,
+      rank: 5,
+      category: "Мастер",
+      lastActivity: "1 неделю назад",
+    }
   ];
 
   return (
@@ -30,14 +70,14 @@ export default function RankingPage() {
           <div className="flex justify-between items-center">
             <CardTitle className="text-sport-light">Общий рейтинг</CardTitle>
             <div className="flex space-x-2">
-              <Button className="bg-sport-primary text-black">Все</Button>
-              <Button variant="outline" className="border-sport-dark-lightest text-sport-light hover:bg-sport-dark-lightest">
+              <Button className="bg-sport-primary text-black hover:bg-yellow-500">Все</Button>
+              <Button variant="outline" className="border-sport-dark-lightest text-sport-light hover:bg-sport-dark-lightest hover:text-sport-light">
                 Шоссе
               </Button>
-              <Button variant="outline" className="border-sport-dark-lightest text-sport-light hover:bg-sport-dark-lightest">
+              <Button variant="outline" className="border-sport-dark-lightest text-sport-light hover:bg-sport-dark-lightest hover:text-sport-light">
                 Трек
               </Button>
-              <Button variant="outline" className="border-sport-dark-lightest text-sport-light hover:bg-sport-dark-lightest">
+              <Button variant="outline" className="border-sport-dark-lightest text-sport-light hover:bg-sport-dark-lightest hover:text-sport-light">
                 MTB
               </Button>
             </div>
@@ -65,7 +105,7 @@ export default function RankingPage() {
                     <td className="p-4">
                       <div className="flex items-center">
                         <span className="text-sport-primary font-bold">{user.rank}</span>
-                        <Trophy className="text-sport-primary ml-2 h-5 w-5" />
+                        {user.rank <= 3 && <Trophy className="text-sport-primary ml-2 h-5 w-5" />}
                       </div>
                     </td>
                     <td className="p-4">
