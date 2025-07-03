@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(0, 0%, 0%);
+  --muted: hsl(210, 40%, 98%);
+  --muted-foreground: hsl(215, 16%, 47%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(0, 0%, 0%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(0, 0%, 0%);
+  --border: hsl(214, 32%, 91%);
+  --input: hsl(214, 32%, 91%);
+  --primary: hsl(45, 95%, 51%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(210, 40%, 96%);
+  --secondary-foreground: hsl(222, 84%, 5%);
+  --accent: hsl(210, 40%, 96%);
+  --accent-foreground: hsl(222, 84%, 5%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(222, 84%, 5%);
+  --radius: 0.5rem;
+  
+  /* Custom SportHub colors */
+  --sport-primary: hsl(45, 95%, 51%);
+  --sport-dark: hsl(0, 0%, 18%);
+  --sport-dark-lighter: hsl(0, 0%, 23%);
+  --sport-dark-lightest: hsl(0, 0%, 29%);
+  --sport-light: hsl(0, 0%, 100%);
+}
+
+.dark {
+  --background: hsl(0, 0%, 18%);
+  --foreground: hsl(0, 0%, 100%);
+  --muted: hsl(0, 0%, 23%);
+  --muted-foreground: hsl(0, 0%, 65%);
+  --popover: hsl(0, 0%, 18%);
+  --popover-foreground: hsl(0, 0%, 100%);
+  --card: hsl(0, 0%, 18%);
+  --card-foreground: hsl(0, 0%, 100%);
+  --border: hsl(0, 0%, 23%);
+  --input: hsl(0, 0%, 23%);
+  --primary: hsl(45, 95%, 51%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(0, 0%, 23%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(0, 0%, 23%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 63%, 31%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --ring: hsl(0, 0%, 24%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background-color: var(--sport-dark);
+    color: var(--sport-light);
+  }
+}
+
+/* Custom dropdown styles */
+.dropdown-trigger:hover + .dropdown-content,
+.dropdown-content:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-content {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease-out;
+}
+
+/* Custom navbar styles */
+.nav-link {
+  @apply text-gray-300 hover:text-[#fcbf06] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200;
+}
+
+.nav-link.active {
+  @apply text-[#fcbf06];
+}
+
+/* Sport-specific utility classes */
+.bg-sport-primary {
+  background-color: #fcbf06;
+}
+
+.bg-sport-dark {
+  background-color: #2e2e2e;
+}
+
+.bg-sport-dark-lighter {
+  background-color: #3a3a3a;
+}
+
+.bg-sport-dark-lightest {
+  background-color: #4a4a4a;
+}
+
+.text-sport-primary {
+  color: #fcbf06;
+}
+
+.text-sport-light {
+  color: #ffffff;
+}
+
+.border-sport-primary {
+  border-color: #fcbf06;
+}
+
+.hover\:bg-sport-primary:hover {
+  background-color: #fcbf06;
+}
+
+.hover\:text-sport-primary:hover {
+  color: #fcbf06;
+}
