@@ -1,9 +1,23 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, ArrowRight } from "lucide-react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import L from "leaflet";
 import type { MapEvent } from "@/lib/types";
+import "leaflet/dist/leaflet.css";
+
+// Fix leaflet icon issue
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png",
+  iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png",
+  shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png",
+});
 
 export default function MapPage() {
+  const [selectedEvent, setSelectedEvent] = useState<MapEvent | null>(null);
+  
   // Mock data - would come from API
   const nearbyEvents: MapEvent[] = [
     {
@@ -15,6 +29,26 @@ export default function MapPage() {
       distance: "15 км от вас",
       latitude: 43.6028,
       longitude: 39.7342
+    },
+    {
+      id: 2,
+      name: "Кубок весны MTB",
+      discipline: "Горный велоспорт",
+      location: "Московская область, Дмитров",
+      date: "15 мая",
+      distance: "47 км от вас",
+      latitude: 56.3439,
+      longitude: 37.5200
+    },
+    {
+      id: 3,
+      name: "Чемпионат Москвы",
+      discipline: "Трек",
+      location: "Москва, Крылатское",
+      date: "22 мая",
+      distance: "32 км от вас",
+      latitude: 55.7742,
+      longitude: 37.4075
     }
   ];
 
@@ -42,14 +76,39 @@ export default function MapPage() {
           </div>
         </CardHeader>
         <CardContent className="p-0">
-          <div className="h-96 bg-sport-dark flex items-center justify-center">
-            <div className="text-center">
-              <MapPin className="h-16 w-16 text-sport-primary mx-auto mb-4" />
-              <p className="text-gray-300 mb-2">Интерактивная карта мероприятий</p>
-              <p className="text-gray-400 text-sm">
-                Здесь будет отображаться карта с точками проведения соревнований
-              </p>
-            </div>
+          <div className="h-96 relative">
+            <MapContainer
+              center={[55.7558, 37.6173]} // Moscow center
+              zoom={6}
+              scrollWheelZoom={true}
+              className="h-full w-full"
+              style={{ height: "100%", width: "100%" }}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              {nearbyEvents.map((event) => (
+                <Marker
+                  key={event.id}
+                  position={[event.latitude, event.longitude]}
+                  eventHandlers={{
+                    click: () => {
+                      setSelectedEvent(event);
+                    },
+                  }}
+                >
+                  <Popup>
+                    <div className="p-2">
+                      <h3 className="font-semibold text-sm mb-1">{event.name}</h3>
+                      <p className="text-xs text-gray-600 mb-1">{event.discipline}</p>
+                      <p className="text-xs text-gray-600 mb-1">{event.location}</p>
+                      <p className="text-xs font-medium">{event.date}</p>
+                    </div>
+                  </Popup>
+                </Marker>
+              ))}
+            </MapContainer>
           </div>
         </CardContent>
       </Card>

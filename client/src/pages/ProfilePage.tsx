@@ -27,13 +27,15 @@ export default function ProfilePage() {
           <div className="text-2xl font-bold text-sport-light">{userStats.competitions}</div>
           <div className="text-gray-300">Соревнований</div>
         </div>
-        <div className="bg-sport-dark-lighter p-6 rounded-xl">
-          <div className="text-sport-primary text-2xl mb-2">
-            <Medal className="h-8 w-8" />
+        <Link href="/ranking">
+          <div className="bg-sport-dark-lighter p-6 rounded-xl hover:bg-sport-dark-lightest transition-colors cursor-pointer">
+            <div className="text-sport-primary text-2xl mb-2">
+              <Medal className="h-8 w-8" />
+            </div>
+            <div className="text-2xl font-bold text-sport-light">{userStats.rank}</div>
+            <div className="text-gray-300">Место в рейтинге</div>
           </div>
-          <div className="text-2xl font-bold text-sport-light">{userStats.rank}</div>
-          <div className="text-gray-300">Место в рейтинге</div>
-        </div>
+        </Link>
         <div className="bg-sport-dark-lighter p-6 rounded-xl">
           <div className="text-sport-primary text-2xl mb-2">
             <Award className="h-8 w-8" />

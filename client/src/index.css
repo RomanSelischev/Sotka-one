@@ -126,3 +126,19 @@
 .hover\:text-sport-primary:hover {
   color: #fcbf06;
 }
+
+/* Leaflet map styles */
+.leaflet-container {
+  font-family: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: #ffffff;
+  color: #2e2e2e;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.leaflet-popup-tip {
+  background-color: #ffffff;
+}
