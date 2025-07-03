@@ -88,10 +88,18 @@ The application uses a relational database structure with the following main ent
 - **Push**: `npm run db:push` applies schema changes to database
 - **Environment**: Requires `DATABASE_URL` environment variable
 
+## Recent Updates
+- Interactive map implemented with Leaflet showing competition locations
+- Login modal added for user authentication
+- "Create Competition" button added to events page
+- Rank badge in profile now links to ranking page
+- Navigation dropdowns functional with hover states
+
 ## Changelog
 ```
 Changelog:
 - July 03, 2025. Initial setup
+- July 03, 2025. Added interactive features: login modal, map with markers, navigation improvements
 ```
 
 ## User Preferences

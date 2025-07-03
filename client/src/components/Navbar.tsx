@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { ChevronDown, User } from "lucide-react";
+import LoginModal from "./LoginModal";
 
 export default function Navbar() {
   const [location] = useLocation();
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   const isActive = (path: string) => {
     if (path === "/" && location === "/") return true;
@@ -116,13 +119,18 @@ export default function Navbar() {
           </div>
           
           <div className="flex items-center">
-            <button className="bg-sport-primary text-black px-4 py-2 rounded-lg font-medium hover:bg-yellow-500 transition-colors">
+            <button 
+              onClick={() => setIsLoginModalOpen(true)}
+              className="bg-sport-primary text-black px-4 py-2 rounded-lg font-medium hover:bg-yellow-500 transition-colors"
+            >
               <User className="inline mr-2 h-4 w-4" />
               Войти
             </button>
           </div>
         </div>
       </div>
+      
+      <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
     </nav>
   );
 }

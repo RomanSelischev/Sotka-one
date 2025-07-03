@@ -1,16 +1,25 @@
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Users } from "lucide-react";
+import { Users, Plus } from "lucide-react";
 
 export default function EventsPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-sport-light mb-2">Соревнования</h1>
-        <p className="text-gray-300">Найдите и участвуйте в соревнованиях</p>
+      <div className="mb-8 flex justify-between items-start">
+        <div>
+          <h1 className="text-3xl font-bold text-sport-light mb-2">Соревнования</h1>
+          <p className="text-gray-300">Найдите и участвуйте в соревнованиях</p>
+        </div>
+        <Link href="/profile/create">
+          <Button className="bg-sport-primary text-black hover:bg-yellow-500">
+            <Plus className="mr-2 h-4 w-4" />
+            Создать соревнование
+          </Button>
+        </Link>
       </div>
 
       {/* Filters */}
