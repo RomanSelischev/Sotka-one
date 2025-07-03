@@ -65,12 +65,15 @@ export default function MapPage() {
           <div className="flex justify-between items-center">
             <CardTitle className="text-sport-light">Интерактивная карта</CardTitle>
             <div className="flex space-x-2">
-              <Button className="bg-sport-primary text-black">Все</Button>
-              <Button variant="outline" className="border-sport-dark-lightest text-sport-light hover:bg-sport-dark-lightest">
-                Предстоящие
+              <Button className="bg-sport-primary text-black hover:bg-yellow-500">Все</Button>
+              <Button variant="outline" className="border-sport-dark-lightest text-sport-light hover:bg-sport-dark-lightest hover:text-sport-light">
+                Шоссе
               </Button>
-              <Button variant="outline" className="border-sport-dark-lightest text-sport-light hover:bg-sport-dark-lightest">
-                Текущие
+              <Button variant="outline" className="border-sport-dark-lightest text-sport-light hover:bg-sport-dark-lightest hover:text-sport-light">
+                Трек
+              </Button>
+              <Button variant="outline" className="border-sport-dark-lightest text-sport-light hover:bg-sport-dark-lightest hover:text-sport-light">
+                MTB
               </Button>
             </div>
           </div>
